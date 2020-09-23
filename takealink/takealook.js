@@ -50,8 +50,6 @@ function getTitle(id) {
   });
 }
 
-getIds(getLinks()).map((item) => getTitle(item));
-
 function setContents(arr) {
   let arr2 = arr.map((item, index) => {
     let content = {};
@@ -67,6 +65,7 @@ function setContents(arr) {
 }
 
 function sendLink() {
+  getIds(getLinks()).map((item) => getTitle(item));
   Kakao.Link.sendDefault({
     objectType: "list",
     headerTitle: "TAKE A LINK",
