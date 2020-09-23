@@ -29,6 +29,8 @@ function getThumbnail(id) {
   return url + id + type;
 }
 
+var titles = [];
+
 function getTitle(id) {
   let title = "";
   $.ajax({
@@ -43,14 +45,15 @@ function getTitle(id) {
     },
     success: function (data) {
       title = data.items[0].snippet.title;
+      titles.push(title);
     },
   });
 }
 
 function setContents(arr) {
-  let arr2 = arr.map((item) => {
+  let arr2 = arr.map((item, index) => {
     let content = {};
-    content.title = "";
+    content.title = titles[index];
     content.description = "Youtube";
     content.imageUrl = getThumbnail(item);
     content.link = {};
