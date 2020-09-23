@@ -31,17 +31,17 @@ function getThumbnail(id) {
 
 function getTitle(id) {
   let title = "";
-  $(document).ready(function () {
-    $.get(
-      "https://www.googleapis.com/youtube/v3/videos/list",
-      {
-        part: "snippet",
-        id: id,
-        key: G_KEY,
-      },
-      function (data) {
-        console.log(data);
-      }
-    );
+  $.ajax({
+    type: "GET",
+    url: "https://www.googleapis.com/youtube/v3/videos/",
+    dataType: "jsonp",
+    data: {
+      part: "snippet",
+      id: id,
+      key: G_KEY,
+    },
+    success: function (data) {
+      console.log(data);
+    },
   });
 }
