@@ -8,7 +8,7 @@ console.log(Kakao.isInitialized());
 
 function getLinks() {
   let arr = [];
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 1; i <= 5; i++) {
     if ($("#link" + i).val() != "" && $("#link" + i).val() != "undefined")
       arr.push($("#link" + i).val());
   }
