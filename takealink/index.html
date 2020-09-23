@@ -14,7 +14,12 @@
       <h1>TAKE A LINK</h1>
     </div>
     <div class="linkbox">
-      <h3>카카오 링크에서 최대 3개의 리스트를 지원합니다.</h3>
+      <h4>카카오 링크에서 최소 2개, 최대 3개의 리스트를 지원합니다.</h4>
+      <h4>
+        Youtube 영상 링크만 지원합니다. 지원형식)
+        https://www.youtube.com/watch?v=-naDBIfAq3o
+      </h4>
+      <!-- 떼껄룩 영상 ㅎ-->
       <input
         type="text"
         id="link1"
@@ -24,7 +29,12 @@
       <input type="text" id="link3" /><br />
     </div>
     <div class="btnbox">
-      <input type="button" id="btn1" value="SEND" onclick="sendLink()" />
+      <input
+        type="button"
+        id="btn1"
+        value="SEND"
+        onclick="location.href='javascript:sendLink()'"
+      />
     </div>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
