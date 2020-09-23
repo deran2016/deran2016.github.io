@@ -94,4 +94,5 @@ function sendLink() {
     },
     contents: setContents(getIds(getLinks())),
   });
+  titles = [];
 }
