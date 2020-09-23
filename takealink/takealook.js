@@ -59,6 +59,7 @@ function getTitle(id) {
     success: function (data) {
       title = data.items[0].snippet.title.replace(/\"/g, "");
       titles.push(title);
+      return 1;
     },
   });
 }
