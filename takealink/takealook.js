@@ -45,7 +45,7 @@ function getTitle(id) {
       key: G_KEY,
     },
     success: function (data) {
-      title = data.items[0].snippet.title;
+      title = data.items[0].snippet.title.replace(/\"/g, "");
       titles.push(title);
     },
   });
