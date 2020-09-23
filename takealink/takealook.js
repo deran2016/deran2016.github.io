@@ -62,8 +62,8 @@ function getContents(id) {
         content.description = "Youtube";
         content.imageUrl = getThumbnail(id);
         content.link = {};
-        content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
-        content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
+        content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + id;
+        content.link.webUrl = "https://www.youtube.com/watch?v=" + id;
         contents.push(content);
       }
     },
