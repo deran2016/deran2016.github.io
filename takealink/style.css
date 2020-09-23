@@ -1,0 +1,49 @@
+.header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header h1 {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.linkbox {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.btnbox {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.linkbox input[type="text"] {
+  width: 100%;
+  height: auto;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  margin: 2px;
+  border: 1px solid #999;
+  border-radius: 7px;
+  outline-style: none;
+  appearance: none;
+}
+
+.btnbox input[type="button"] {
+  width: 100%;
+  height: auto;
+  margin: 5px;
+  border: 1px solid #999;
+  background-color: #ffffff;
+  color: #999;
+  padding: 0.8em 0.5em;
+  border-radius: 7px;
+}
+
+.btnbox input[type="button"]:hover {
+  color: #ffffff;
+  background-color: #999;
+}
