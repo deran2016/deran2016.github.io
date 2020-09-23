@@ -33,7 +33,7 @@ function getTitle(id) {
   let title = "";
   $(document).ready(function () {
     $.get(
-      "",
+      "https://www.googleapis.com/youtube/v3/videos/list",
       {
         part: "snippet",
         id: id,
