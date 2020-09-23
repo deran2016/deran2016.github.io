@@ -45,17 +45,17 @@ function getThumbnail(id) {
  * getTitle(id): 입력받은 ID의 제목을 titles 배열에 push 합니다.
  *********************************************************/
 function getTitle(id) {
-  let title = "";
+  var title = "";
   $.ajax({
     type: "GET",
     url: "https://www.googleapis.com/youtube/v3/videos/",
-    async: false,
     dataType: "jsonp",
     data: {
       part: "snippet",
       id: id,
       key: G_KEY,
     },
+    async: false,
     success: function (data) {
       if (data != null) {
         title = data.items[0].snippet.title.replace(/\"/g, "");
@@ -71,17 +71,19 @@ function getTitle(id) {
 /*********************************************************
  * setContents(arr): 입력받은 ID 배열로 컨텐츠의 배열을 반환합니다.
  *********************************************************/
-function setContents(arr, titles) {
-  let arr2 = arr.map((item, index) => {
-    let content = {};
-    content.title = titles[index];
-    content.description = "Youtube 영상";
-    content.imageUrl = getThumbnail(item);
-    content.link = {};
-    content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
-    content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
-    return content;
-  });
+async function setContents(arr, titles) {
+  let arr2 = await Promise.all(
+    arr.map((item, index) => {
+      let content = {};
+      content.title = titles[index];
+      content.description = "Youtube 영상";
+      content.imageUrl = getThumbnail(item);
+      content.link = {};
+      content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
+      content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
+      return content;
+    })
+  );
   return arr2;
 }
 
