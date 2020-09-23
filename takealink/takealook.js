@@ -34,6 +34,7 @@ function getTitle(id) {
   $.ajax({
     type: "GET",
     url: "https://www.googleapis.com/youtube/v3/videos/",
+    async: false,
     dataType: "jsonp",
     data: {
       part: "snippet",
@@ -44,5 +45,29 @@ function getTitle(id) {
       title = data.items[0].snippet.title;
     },
   });
-  return title;
+}
+
+function setContents(arr) {
+  let arr2 = arr.map((item) => {
+    let content = {};
+    content.title = "";
+    content.description = "Youtube";
+    content.imageUrl = getThumbnail(item);
+    content.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
+    content.webUrl = "https://www.youtube.com/watch?v=" + item;
+    return content;
+  });
+  return arr2;
+}
+
+function sendLink() {
+  Kakao.Link.sendDefault({
+    objectType: "list",
+    headerTitle: "WEEKLY MAGAZINE",
+    headerLink: {
+      mobileWebUrl: "https://deran2016.github.io/takealink",
+      webUrl: "https://deran2016.github.io/takealink",
+    },
+    contents: setContents(),
+  });
 }
