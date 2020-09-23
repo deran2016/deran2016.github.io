@@ -39,7 +39,7 @@ function getThumbnail(id) {
   return url + id + type;
 }
 
-var titles = []; // 제목을 받기 위한 전역 배열을 선언합니다.
+// var titles = []; // 제목을 받기 위한 전역 배열을 선언합니다.
 
 /*********************************************************
  * getTitle(id): 입력받은 ID의 제목을 titles 배열에 push 합니다.
@@ -57,9 +57,10 @@ function getTitle(id) {
       key: G_KEY,
     },
     success: function (data) {
-      title = data.items[0].snippet.title.replace(/\"/g, "");
-      titles.push(title);
-      return 1;
+      if (data != null) {
+        title = data.items[0].snippet.title.replace(/\"/g, "");
+        return title;
+      }
     },
   });
 }
@@ -85,7 +86,7 @@ function setContents(arr) {
  * sendLink(): 종합된 메시지 템플릿을 카카오 링크로 전송합니다.
  *********************************************************/
 function sendLink() {
-  getIds(getLinks()).map((item) => getTitle(item));
+  let titles = getIds(getLinks()).map((item) => getTitle(item));
   Kakao.Link.sendDefault({
     objectType: "list",
     headerTitle: "TAKE A LINK",
