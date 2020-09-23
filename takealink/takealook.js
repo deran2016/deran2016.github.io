@@ -87,5 +87,5 @@ function sendLink() {
     },
     contents: contents,
   });
-  titles = [];
+  contents = [];
 }
