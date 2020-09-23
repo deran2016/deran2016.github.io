@@ -59,10 +59,13 @@ function getTitle(id) {
     success: function (data) {
       if (data != null) {
         title = data.items[0].snippet.title.replace(/\"/g, "");
-        return title;
       }
     },
+    error: function (e) {
+      alert("영상의 제목을 불러오는데 실패했습니다.");
+    },
   });
+  return title;
 }
 
 /*********************************************************
