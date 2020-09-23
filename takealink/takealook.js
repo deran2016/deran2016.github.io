@@ -39,13 +39,12 @@ function getThumbnail(id) {
   return url + id + type;
 }
 
-// var titles = []; // 제목을 받기 위한 전역 배열을 선언합니다.
+var contents = []; // 컨텐츠를 담기 위한 전역 변수
 
 /*********************************************************
- * getTitle(id): 입력받은 ID의 제목을 titles 배열에 push 합니다.
+ * getContents(id): 입력받은 ID의 컨텐츠를 반환합니다.
  *********************************************************/
-function getTitle(id) {
-  var title = "";
+function getContents(id) {
   $.ajax({
     type: "GET",
     url: "https://www.googleapis.com/youtube/v3/videos/",
@@ -58,40 +57,27 @@ function getTitle(id) {
     async: false,
     success: function (data) {
       if (data != null) {
-        title = data.items[0].snippet.title.replace(/\"/g, "");
+        let content = {};
+        content.title = data.items[0].snippet.title.replace(/\"/g, "");
+        content.description = "Youtube";
+        content.imageUrl = getThumbnail(id);
+        content.link = {};
+        content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
+        content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
+        contents.push(content);
       }
     },
     error: function (e) {
-      alert("영상의 제목을 불러오는데 실패했습니다.");
+      alert("콘텐츠를 불러오는데 실패했습니다.");
     },
   });
-  return title;
-}
-
-/*********************************************************
- * setContents(arr): 입력받은 ID 배열로 컨텐츠의 배열을 반환합니다.
- *********************************************************/
-async function setContents(arr, titles) {
-  let arr2 = await Promise.all(
-    arr.map((item, index) => {
-      let content = {};
-      content.title = titles[index];
-      content.description = "Youtube 영상";
-      content.imageUrl = getThumbnail(item);
-      content.link = {};
-      content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
-      content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
-      return content;
-    })
-  );
-  return arr2;
 }
 
 /*********************************************************
  * sendLink(): 종합된 메시지 템플릿을 카카오 링크로 전송합니다.
  *********************************************************/
 function sendLink() {
-  let titles = getIds(getLinks()).map((item) => getTitle(item));
+  getIds(getLinks()).map((item) => getContents(item));
   Kakao.Link.sendDefault({
     objectType: "list",
     headerTitle: "TAKE A LINK",
@@ -99,7 +85,7 @@ function sendLink() {
       mobileWebUrl: "https://deran2016.github.io/takealink",
       webUrl: "https://deran2016.github.io/takealink",
     },
-    contents: setContents(getIds(getLinks()), titles),
+    contents: contents,
   });
   titles = [];
 }
