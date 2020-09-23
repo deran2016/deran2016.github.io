@@ -53,8 +53,9 @@ function setContents(arr) {
     content.title = "";
     content.description = "Youtube";
     content.imageUrl = getThumbnail(item);
-    content.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
-    content.webUrl = "https://www.youtube.com/watch?v=" + item;
+    content.link = {};
+    content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + item;
+    content.link.webUrl = "https://www.youtube.com/watch?v=" + item;
     return content;
   });
   return arr2;
@@ -63,11 +64,11 @@ function setContents(arr) {
 function sendLink() {
   Kakao.Link.sendDefault({
     objectType: "list",
-    headerTitle: "WEEKLY MAGAZINE",
+    headerTitle: "TAKE A LINK",
     headerLink: {
       mobileWebUrl: "https://deran2016.github.io/takealink",
       webUrl: "https://deran2016.github.io/takealink",
     },
-    contents: setContents(),
+    contents: setContents(getIds(getLinks())),
   });
 }
