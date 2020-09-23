@@ -68,7 +68,7 @@ function getTitle(id) {
 /*********************************************************
  * setContents(arr): 입력받은 ID 배열로 컨텐츠의 배열을 반환합니다.
  *********************************************************/
-function setContents(arr) {
+function setContents(arr, titles) {
   let arr2 = arr.map((item, index) => {
     let content = {};
     content.title = titles[index];
@@ -94,7 +94,7 @@ function sendLink() {
       mobileWebUrl: "https://deran2016.github.io/takealink",
       webUrl: "https://deran2016.github.io/takealink",
     },
-    contents: setContents(getIds(getLinks())),
+    contents: setContents(getIds(getLinks()), titles),
   });
   titles = [];
 }
