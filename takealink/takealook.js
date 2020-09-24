@@ -64,6 +64,10 @@ function getContents(id) {
         content.link = {};
         content.link.mobileWebUrl = "https://www.youtube.com/watch?v=" + id;
         content.link.webUrl = "https://www.youtube.com/watch?v=" + id;
+        content.link.iosExecParams =
+          "vnd.youtube://www.youtube.com/watch?v=" + id;
+        content.link.androidExecParams =
+          "vnd.youtube://www.youtube.com/watch?v=" + id;
         contents.push(content);
       }
     },
