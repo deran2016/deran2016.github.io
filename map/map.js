@@ -22,9 +22,7 @@ let overlays = [];
 
 getData(data);
 
-function getData(data) {
-  let data = data;
-
+function getData() {
   // init Overlays
   removeOverlays();
 
