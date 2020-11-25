@@ -20,6 +20,8 @@ const mapOptions = {
 const map = new kakao.maps.Map(mapContainer, mapOptions);
 let overlays = [];
 
+getData(data);
+
 function getData(data) {
   let data = data;
 
