@@ -23,6 +23,8 @@ input {
   outline: none;
   appearance: none;
   -webkit-appearance: none;
+  width: 90%;
+  margin: 4px auto;
 }
 input:hover {
   background: #fff;
