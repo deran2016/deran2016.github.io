@@ -23,28 +23,28 @@ const questions = [
         ]
     }, 
     {
-        question: "2",
+        question: "돼지고기와 소고기 둘 중 하나만 평생 먹어야 한다면?",
         answers: [
             {
                 type: 'E',
-                answer: "E"
+                answer: "돼지고기"
             }, 
             {
                 type: 'I',
-                answer: "I"
+                answer: "소고기"
             }
         ]
     }, 
     {
-        question: "3",
+        question: "평생 하나로만 돈 관리할 수 있다면?",
         answers: [
             {
                 type: 'E',
-                answer: "E"
+                answer: "삼성전자 주식으로"
             }, 
             {
                 type: 'I',
-                answer: "I"
+                answer: "비트코인으로"
             }
         ]
     }, 
