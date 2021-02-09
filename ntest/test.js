@@ -178,10 +178,13 @@ let index = 0;
 /****************
  *  Main Logic
  ****************/
-function drawQuestion(q, i) {
+function drawTest(q, i) {
     $("q").innerHTML = q[i].question;
     $("a1").innerHTML = q[i].answers[0].answer;
     $("a2").innerHTML = q[i].answers[1].answer;
+    $("cnt").innerHTML = "<small>" + (i + 1) + "/" + q.length + "</small>";
+    $("per").style.width = ((i + 1) * 100 / q.length) + "%";
+    $("per").setAttribute('aria-valuenow', `${i}`);
 }
 
 function onClick(n) {
@@ -192,7 +195,7 @@ function onClick(n) {
             location.reload();
         } else { // 마지막 문항이 아닐 때
             index++;
-            drawQuestion(questions, index);
+            drawTest(questions, index);
         }
     } else {
         alert("마지막 문항입니다.");
@@ -201,10 +204,10 @@ function onClick(n) {
 
 function getResult() {
     let result = "";
-    result += (scores['E'] > scores['I']) ? "E" : "I";
-    result += (scores['S'] > scores['N']) ? "S" : "N";
-    result += (scores['T'] > scores['F']) ? "T" : "F";
-    result += (scores['P'] > scores['J']) ? "P" : "J";
+    result += (scores['E'] > scores['I']) ? "E" : "I"; // EI
+    result += (scores['S'] > scores['N']) ? "S" : "N"; // SN
+    result += (scores['T'] > scores['F']) ? "T" : "F"; // TF
+    result += (scores['P'] > scores['J']) ? "P" : "J"; // PJ
     return result;
 }
 
@@ -212,5 +215,5 @@ $("a1").addEventListener("click", function(){onClick(0)}, false);
 $("a2").addEventListener("click", function(){onClick(1)}, false);
 
 window.onload = function() {
-    drawQuestion(questions, index);
+    drawTest(questions, index);
 }
