@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
-    />
-    <title>TAKE A LOOK</title>
-  </head>
-  <a href="takealink/index.html">GO "TAKE A LINK"</a>
-  <a href="map/index.html">GO "MAP"</a>
-  <img src="takealook.jpg" alt="떼껄룩" />
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+        <!-- Custon CSS-->
+        <link href="style.css" rel="stylesheet">
+
+        <title>떼껄룩 깃허브 페이지</title>
+
+        <!-- Open graph meta tags-->
+        <meta property="og:image" content="takealook.jpg">
+        <meta property="og:title" content="떼껄룩 깃허브 페이지">
+        <meta property="og:description" content="다양한 것들을 업로드합니다.">
+
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
+
+            body {
+                font-family: "Noto Serif KR", serif;
+                text-align: center;
+            }
+            header {
+                margin: 3rem 3rem 2rem;
+            }
+            .custom-btn-div {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .custom-btn {
+                font-weight: bolder;
+                font-size: 0.85rem;
+                height: 4em;
+                width: 22rem;
+                margin: 0.5em auto;
+                word-break: keep-all;
+                white-space: pre-line;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3>떼껄룩 깃허브 페이지~</h3>
+        </header>
+        <div class="custom-btn-div">
+            <img src="takealook.jpg" width="30%" alt="떼껄룩" />
+            <button type="button" class="btn btn-outline-primary btn-lg custom-btn" onclick="location.href='ntest/index.html'">어쩌구 테스트 하기!</button>
+            <button type="button" class="btn btn-outline-warning btn-lg custom-btn" onclick="location.href='takealink/index.html'">유튜브 링크 묶음 카카오톡 전송</button>
+        </div>
+    </body>
 </html>
